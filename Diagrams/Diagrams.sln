@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9BF1DFBD-176
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{23CA0925-91AF-4BE8-9388-0E2334D98580}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitDAL", "InitDAL\InitDAL.csproj", "{4F53900A-D892-4FE2-9DAF-52D9D90B8FD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InitDAL", "InitDAL\InitDAL.csproj", "{4F53900A-D892-4FE2-9DAF-52D9D90B8FD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A71F976E-D7A0-45DD-90FB-6A8B05611072}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{4F53900A-D892-4FE2-9DAF-52D9D90B8FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F53900A-D892-4FE2-9DAF-52D9D90B8FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F53900A-D892-4FE2-9DAF-52D9D90B8FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A71F976E-D7A0-45DD-90FB-6A8B05611072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71F976E-D7A0-45DD-90FB-6A8B05611072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71F976E-D7A0-45DD-90FB-6A8B05611072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71F976E-D7A0-45DD-90FB-6A8B05611072}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{23CA0925-91AF-4BE8-9388-0E2334D98580} = {9BF1DFBD-176A-404C-8441-8ABEE8346996}
 		{4F53900A-D892-4FE2-9DAF-52D9D90B8FD2} = {9BF1DFBD-176A-404C-8441-8ABEE8346996}
+		{A71F976E-D7A0-45DD-90FB-6A8B05611072} = {9BF1DFBD-176A-404C-8441-8ABEE8346996}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FAD70093-ED4E-4348-8CA5-04DDDFCD92AD}
