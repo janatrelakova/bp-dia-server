@@ -10,9 +10,9 @@ namespace Infrastructure.UoW
     {
         private readonly IList<Action> afterCommitActions = new List<Action>();
 
-        public async Task Commit()
+        public async Task CommitAsync()
         {
-            await CommitCore();
+            await CommitCoreAsync();
             foreach (var action in afterCommitActions)
             {
                 action();
@@ -27,6 +27,6 @@ namespace Infrastructure.UoW
 
         public abstract void Dispose();
 
-        public abstract Task CommitCore();
+        public abstract Task CommitCoreAsync();
     }
 }

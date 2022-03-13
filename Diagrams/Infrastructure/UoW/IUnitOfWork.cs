@@ -12,13 +12,13 @@ namespace Infrastructure.UoW
         /// TODO
         /// </summary>
         /// <returns></returns>
-        Task Commit();
+        Task CommitAsync();
 
         /// <summary>
         /// TODO
         /// </summary>
         /// <returns></returns>
-        Task CommitCore();
+        Task CommitCoreAsync();
 
         /// <summary>
         /// TODO

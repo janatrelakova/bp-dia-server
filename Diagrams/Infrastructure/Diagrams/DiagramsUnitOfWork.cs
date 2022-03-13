@@ -22,7 +22,7 @@ namespace Infrastructure.Diagrams
             Context = dbContextFactory.Invoke();
         }
 
-        public override async Task CommitCore()
+        public override async Task CommitCoreAsync()
         {
             await Context.SaveChangesAsync();
         }
