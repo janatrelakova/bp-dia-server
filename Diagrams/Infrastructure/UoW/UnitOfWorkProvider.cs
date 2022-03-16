@@ -15,7 +15,7 @@ namespace Infrastructure.UoW
 
         public IUnitOfWork GetUOWInstance()
         {
-            if (uowInstance == null)
+            if (uowInstance.Value == null)
             {
                 uowInstance.Value = Create();
             }

@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace DAL.Entities
+namespace Models.Entities
 {
     public interface IEntity
     {
         Guid Id { get; set; }
-        
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Infrastructure
+namespace Models
 {
     public class Class1
     {

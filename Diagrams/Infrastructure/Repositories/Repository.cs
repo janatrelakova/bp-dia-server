@@ -1,8 +1,8 @@
-﻿using DAL.Entities;
-using Infrastructure.Diagrams;
+﻿using Infrastructure.Diagrams;
 using Infrastructure.UoW;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Models.Entities;
 using System;
 using System.Threading.Tasks;
 

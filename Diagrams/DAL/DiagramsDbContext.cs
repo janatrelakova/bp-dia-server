@@ -1,6 +1,5 @@
-﻿using DAL.Entities;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Models.Entities;
 
 namespace DAL
 {
