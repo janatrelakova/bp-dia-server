@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MySQL.Data.EntityFrameworkCore;
 using Models.Entities;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
 namespace DAL
 {
@@ -20,7 +23,7 @@ namespace DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseSqlServer(_connectionString)
+                .UseMySql("server=localhost; port=3306; database=test; user=root; password=; Persist Security Info=False; Connect Timeout=300", new MySqlServerVersion(new System.Version()))
                 .UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
         }
