@@ -7,7 +7,6 @@ namespace InitDAL
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             using (var context = new DiagramsDbContext())
             {
                 context.Database.EnsureDeleted();
