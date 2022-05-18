@@ -26,8 +26,26 @@ namespace API.Controllers
         [HttpGet, Route("diagrams")]
         public async Task<IEnumerable<DiagramBasicInfoDTO>> Get(Guid userId)
         {
-            // "5461aa1b-7238-4cc7-bc20-eb5314f490b6"
             return await _diagramsPageFacade.GetDiagramsByUserId(userId);
         }
+
+        [HttpPost, Route("new")]
+        public async Task<bool> CreateDiagram([FromBody] ConnectionDTO diagramDTO)
+        {
+            return await _diagramsPageFacade.CreateDiagram(diagramDTO);
+        }
+
+        [HttpPost, Route("connect")]
+        public async Task<bool> ConnectDiagram([FromBody] ConnectionDTO diagramDTO)
+        {
+            return await _diagramsPageFacade.ConnectDiagram(diagramDTO);
+        }
+
+        [HttpGet, Route("all")]
+        public async Task<IEnumerable<DiagramBasicInfoDTO>> GetAllDiagrams()
+        {
+            return await _diagramsPageFacade.GetAllDiagrams();
+        }
+
     }
 }

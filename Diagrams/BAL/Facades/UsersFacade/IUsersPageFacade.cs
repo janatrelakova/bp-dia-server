@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAL.Services.User
+namespace BAL.Facades.UsersFacade
 {
-    public interface IUserService
+    public interface IUsersPageFacade
     {
-        Task<ICollection<UserBasicInfoDTO>> GetUsers();
+        Task<IEnumerable<UserBasicInfoDTO>> GetAllUsers();
     }
 }

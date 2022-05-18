@@ -37,5 +37,14 @@ namespace BAL.Services.Diagram
             return _mapper.Map<DiagramBasicInfoDTO>(result);
 
         }
+
+        public async Task<ICollection<DiagramBasicInfoDTO>> GetAllDiagrams()
+        {
+
+            var allDiagrams = await _query.GetSetAsync();
+            return _mapper.Map<List<DiagramBasicInfoDTO>>(allDiagrams);
+
+        }
+
     }
 }

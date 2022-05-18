@@ -32,5 +32,12 @@ namespace BAL.Services.UserDiagram
             return _mapper.Map<List<UserDiagramsPageDTO>>(result);
         }
 
+        public async Task<ICollection<DiagramBasicInfoDTO>> GetAllDiagrams()
+        {
+
+            var diagrams = await _query.GetSetAsync();
+            return _mapper.Map<List<DiagramBasicInfoDTO>>(diagrams);
+        }
+
     }
 }

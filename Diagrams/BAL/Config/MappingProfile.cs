@@ -15,7 +15,13 @@ namespace BAL.Config
         {
             CreateMap<UserDiagram, UserDiagramsPageDTO>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.DiagramId));
             //CreateMap<List<UserDiagram>, List<UserDiagramsPageDTO>>();
-            CreateMap<Diagram, DiagramBasicInfoDTO>();
+            CreateMap<Diagram, DiagramBasicInfoDTO>().ReverseMap();
+            CreateMap<UserDiagram, NewDiagramDTO>().ReverseMap();
+            CreateMap<UserDiagram, DiagramUpdateDTO>().ReverseMap();
+            CreateMap<Diagram, DiagramCreateDTO>().ReverseMap();
+            CreateMap<User, UserBasicInfoDTO>();
+            CreateMap<Diagram, DiagramUpdateDTO>().ReverseMap();
+
         }
     }
 }

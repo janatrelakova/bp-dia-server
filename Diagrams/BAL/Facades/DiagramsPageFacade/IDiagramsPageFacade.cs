@@ -10,5 +10,11 @@ namespace BAL.Facades.DiagramsPageFacade
     public interface IDiagramsPageFacade
     {
         Task<IEnumerable<DiagramBasicInfoDTO>> GetDiagramsByUserId(Guid userId);
+
+        Task<IEnumerable<DiagramBasicInfoDTO>> GetAllDiagrams();
+
+        Task<bool> CreateDiagram(ConnectionDTO diagramDTO);
+
+        Task<bool> ConnectDiagram(ConnectionDTO diagramDTO);
     }
 }

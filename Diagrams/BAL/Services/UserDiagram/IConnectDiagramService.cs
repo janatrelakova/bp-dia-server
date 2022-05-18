@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAL.Services.User
+namespace BAL.Services.UserDiagram
 {
-    public interface IUserService
+    public interface IConnectDiagramService
     {
-        Task<ICollection<UserBasicInfoDTO>> GetUsers();
+
+        Task<Guid> CreateAsync(NewDiagramDTO diagramDTO);
     }
 }

@@ -35,8 +35,21 @@ namespace BAL.Config
                 .As(typeof(IDiagramService))
                 .InstancePerDependency();
 
+            builder.RegisterType(typeof(NewDiagramService))
+                .As(typeof(INewDiagramService))
+                .InstancePerDependency();
+
+
+            builder.RegisterType(typeof(UpdateDiagramService))
+                .As(typeof(IUpdateDiagramService))
+                .InstancePerDependency();
+
             builder.RegisterType(typeof(UserDiagramService))
                 .As(typeof(IUserDiagramService))
+                .InstancePerDependency();
+
+            builder.RegisterType(typeof(ConnectDiagramService))
+                .As(typeof(IConnectDiagramService))
                 .InstancePerDependency();
 
             builder.RegisterInstance(new Mapper(new MapperConfiguration(cfg => { }))).As<IMapper>();

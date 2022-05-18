@@ -51,7 +51,7 @@ namespace BAL.Services
         public virtual async Task UpdateAsync(DTO entityDto)
         {
             var entity = await _repository.GetAsync(entityDto.Id);
-            await _repository.UpdateAsync(_mapper.Map<TEntity>(entity));
+            await _repository.UpdateAsync(_mapper.Map<TEntity>(entityDto));
         }
     }
 }

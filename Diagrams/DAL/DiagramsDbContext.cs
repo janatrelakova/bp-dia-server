@@ -8,7 +8,8 @@ namespace DAL
 {
     public class DiagramsDbContext : DbContext
     {
-        private const string _connectionString = "Server=(localdb)\\mssqllocaldb;Integrated Security=True;MultipleActiveResultSets=True;Database=Diagrams;Trusted_Connection=True;";
+        // this is bad practice, but for easy startup it stays here, you can change the string
+        private const string _connectionString = "server=localhost; port=3306; database=diagram; user=diagram_usr; password=password; Persist Security Info=False; Connect Timeout=300";
 
         #region DbSets
 
@@ -23,7 +24,7 @@ namespace DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseMySql("server=localhost; port=3306; database=test; user=root; password=; Persist Security Info=False; Connect Timeout=300", new MySqlServerVersion(new System.Version()))
+                .UseMySql(_connectionString, new MySqlServerVersion(new System.Version()))
                 .UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
         }

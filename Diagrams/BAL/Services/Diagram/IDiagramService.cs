@@ -10,5 +10,9 @@ namespace BAL.Services.Diagram
     public interface IDiagramService
     {
         Task<DiagramBasicInfoDTO> GetDiagramByIdAsync(Guid diagramId);
+       
+        Task<ICollection<DiagramBasicInfoDTO>> GetAllDiagrams();
+
+        Task<Guid> CreateAsync(DiagramBasicInfoDTO diagramDTO);
     }
 }

@@ -16,15 +16,24 @@ namespace BAL.Facades.DiagramsPageFacade
 
         private readonly IUserDiagramService _userDiagramService;
         private readonly IDiagramService _diagramService;
+        private readonly INewDiagramService _newDiagramService;
+        private readonly IUpdateDiagramService _updateService;
+        private readonly IConnectDiagramService _connectService;
 
         public DiagramsPageFacade(
             IUnitOfWorkProvider uowProvider,
             IMapper mapper,
             IUserDiagramService userDiagramService,
-            IDiagramService diagramService) : base(uowProvider, mapper) 
+            IDiagramService diagramService,
+            INewDiagramService newDiagramService,
+            IUpdateDiagramService updateService,
+            IConnectDiagramService connectService) : base(uowProvider, mapper)
         {
             _userDiagramService = userDiagramService ?? throw new ArgumentNullException(nameof(userDiagramService));
             _diagramService = diagramService ?? throw new ArgumentNullException(nameof(diagramService));
+            _connectService = connectService ?? throw new ArgumentNullException(nameof(connectService));
+            _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
+            _newDiagramService = newDiagramService ?? throw new ArgumentNullException(nameof(newDiagramService));
         }
 
 
@@ -39,5 +48,55 @@ namespace BAL.Facades.DiagramsPageFacade
             return result;
         }
 
+
+        public async Task<IEnumerable<DiagramBasicInfoDTO>> GetAllDiagrams()
+        {
+            var userDiagrams = await _diagramService.GetAllDiagrams();
+            var result = new List<DiagramBasicInfoDTO>();
+            foreach (var userDiagram in userDiagrams)
+            {
+                result.Add(userDiagram);
+            }
+            return result;
+        }
+
+        public async Task<bool> CreateDiagram(ConnectionDTO diagramDTO) 
+        {
+            using (var uow = UnitOfWorkProvider.Create())
+            {
+                var newDiagram = await _newDiagramService.CreateAsync(
+                new DiagramCreateDTO
+                {
+                    Room = diagramDTO.Room,
+                    Data = "",
+                });
+
+                await _connectService.CreateAsync(new NewDiagramDTO
+                {
+                    UserId = diagramDTO.UserId,
+                    DiagramId = newDiagram,
+                });
+
+                await uow.CommitAsync();
+                return true;
+            }
+        }
+
+        public async Task<bool> ConnectDiagram(ConnectionDTO diagramDTO)
+        {
+            using (var uow = UnitOfWorkProvider.Create())
+            {
+                var diagramId = await _updateService.GetByRoomNameAsync(diagramDTO.Room);
+
+                await _connectService.CreateAsync(new NewDiagramDTO
+                {
+                    UserId = diagramDTO.UserId,
+                    DiagramId = diagramId,
+                });
+
+                await uow.CommitAsync();
+                return true;
+            }
+        }
     }
 }
